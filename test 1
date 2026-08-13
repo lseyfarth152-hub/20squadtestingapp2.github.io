@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alert Desk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#"><span class="brand-mark">✦</span> alertdesk</a>
+        <nav aria-label="Primary navigation">
+          <a class="nav-item active" href="#compose"><span>⌁</span> Compose</a>
+          <a class="nav-item" href="#activity"><span>◷</span> Activity <b>3</b></a>
+          <a class="nav-item" href="#members"><span>◎</span> Members</a>
+          <a class="nav-item" href="#settings"><span>⚙</span> Settings</a>
+        </nav>
+        <div class="sidebar-foot">
+          <div class="workspace-icon">N</div>
+          <div><strong>Northstar Studio</strong><small>Pro workspace</small></div>
+          <button aria-label="Switch workspace">⌄</button>
+        </div>
+      </aside>
+
+      <section class="content" id="compose">
+        <header class="topbar">
+          <div class="crumb"><span>Alerts</span><i>/</i><strong>New alert</strong></div>
+          <div class="profile"><button class="help">?</button><span class="avatar">JM</span></div>
+        </header>
+
+        <div class="workspace">
+          <section class="composer" aria-labelledby="heading">
+            <div class="heading-row"><div><p class="eyebrow">COMPOSE AN ALERT</p><h1 id="heading">Make it count.</h1><p class="intro">Send a clear update to exactly the people who need it.</p></div><span class="draft">Draft saved</span></div>
+
+            <form id="alert-form">
+              <label class="field-label" for="title">Alert title</label>
+              <input id="title" maxlength="70" value="Design review moved to Thursday" />
+              <div class="input-meta"><span>Keep it scannable and specific.</span><span id="count">36 / 70</span></div>
+
+              <label class="field-label" for="message">Message</label>
+              <textarea id="message" maxlength="500">We’re shifting the final review by one day to give everyone a little more time with the prototype. Same agenda, Thursday at 10:00 AM.</textarea>
+              <div class="input-meta"><span>Include the context and next step.</span><span id="message-count">137 / 500</span></div>
+
+              <div class="delivery">
+                <div><span class="field-label">Delivery</span><p>Send now</p></div>
+                <button class="toggle on" type="button" aria-pressed="true"><span></span></button>
+              </div>
+            </form>
+          </section>
+
+          <aside class="audience" aria-label="Audience">
+            <div class="audience-head"><div><p class="eyebrow">AUDIENCE</p><h2>Who needs to know?</h2></div><button id="clear" class="text-button">Clear</button></div>
+            <div class="search"><span>⌕</span><input id="search" placeholder="Search members" aria-label="Search members" /></div>
+            <div class="select-row"><button class="select-all" id="select-all">Select all</button><span id="selected-count">4 selected</span></div>
+            <div class="member-list" id="member-list"></div>
+            <div class="audience-footer"><div class="recipient-stack" id="recipient-stack"></div><span id="recipient-label">4 recipients</span></div>
+          </aside>
+        </div>
+
+        <footer class="actionbar"><p><span class="secure-dot"></span> Only selected members can see this alert.</p><button class="send" id="send" type="submit" form="alert-form">Send alert <span>→</span></button></footer>
+      </section>
+    </main>
+    <div class="toast" id="toast" role="status"><span>✓</span><div><strong>Alert sent</strong><small id="toast-copy">Your selected members have been notified.</small></div></div>
+    <script src="app.js"></script>
+  </body>
+</html>
